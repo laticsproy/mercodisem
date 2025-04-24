@@ -1,0 +1,26 @@
+.tabla_descripcion {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    table-layout: fixed; /* Ajusta la tabla al ancho disponible */
+}
+.tabla_descripcion th, .tabla_descripcion td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    box-sizing: border-box;
+}
+.tabla_descripcion th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+.tabla_descripcion td {
+    height: 5em; /* Aproximadamente 5 líneas de texto */
+    vertical-align: top;
+    word-wrap: break-word; /* Ajusta el texto dentro de la celda */
+    overflow: hidden; /* Oculta el desbordamiento del texto */
+    text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es demasiado largo */
+    white-space: normal; /* Permite el ajuste del texto en múltiples líneas */
+    font-size: 12px; 
+
+}

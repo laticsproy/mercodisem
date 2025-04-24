@@ -1,0 +1,38 @@
+img{
+  
+  position: absolute;
+  width: 720px;
+  height: 1000px
+}
+
+  #datos{
+    position: relative;
+    top: 20em;
+  }
+
+table {
+   margin: auto;
+   width: 100%;
+   border: 1px solid #5ABA47;
+
+
+}
+th, td {
+   width: 20%;
+   text-align: center;
+   vertical-align: top;
+   padding: 0.3em;
+   caption-side: bottom;
+}
+caption {
+   padding: 0.3em;
+   color: #5ABA47;
+    background: #000;
+}
+th {
+   background: #eee;
+}
+
+p{
+	 font-weight: bold;
+ }

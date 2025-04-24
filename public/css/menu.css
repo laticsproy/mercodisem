@@ -1,0 +1,34 @@
+.nav ul{
+	margin-top:8px;
+    background:#64858C;
+    list-style: none;
+    text-align: right;
+    padding: 8px;
+    
+
+    
+
+}
+
+.nav li{
+    display: inline-block;
+}
+
+.nav a{
+    color: white;
+    text-decoration: none;
+    width: 75px;
+    display: block;
+    position: relative;
+    left: -45px; /* Ajusta este valor según necesites */
+    
+}
+
+a:hover{
+    background:#ff9900;
+} 
+
+.nav ul li a.activo {
+    background-color: #11ff00;
+    color: #fff;
+  }

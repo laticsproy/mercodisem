@@ -1,0 +1,40 @@
+.jumbotron
+{
+  
+  background:rgba(255, 255, 255, 0.664);
+  
+}
+
+
+
+h5 
+{
+	color:#11308D;
+	font-family: 'Coda', cursive;
+}
+
+/*
+.nav-tabs
+{
+  margin-top: -60px; 
+}
+
+.navbar-nav > li > a, .navbar-brand {
+    padding-top:10px !important; padding-bottom:0 !important;
+    height: 70px; /* aqui escoges el alto que necesites */
+/*}
+
+
+.navbar {
+    min-height:70px !important; /* aqui escoges el alto que necesites */
+/*}*/
+
+
+.nav-link
+{
+	color:#11308D;
+	font-family: 'Coda', cursive;  
+	background-color: #FFF;
+}
+
+

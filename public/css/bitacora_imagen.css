@@ -1,0 +1,9 @@
+
+.letter-size img {
+    max-width: 50%; /* Ajusta el tamaño máximo de la imagen al 50% del ancho del contenedor */
+    max-height: 50%; /* Ajusta el tamaño máximo de la imagen al 50% de la altura del contenedor */
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+}
