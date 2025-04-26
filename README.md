@@ -1,66 +1,119 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Minuta Electrónica de Reunión
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistema web desarrollado en **Laravel 11** para gestionar minutas electrónicas de reuniones, incluyendo la creación de reuniones y asistentes. Este proyecto utiliza validaciones de formularios con las clases `StoreReunion` y `StoreAsistente`.
 
-## About Laravel
+## Requisitos previos
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Antes de instalar el proyecto, asegúrate de tener instalado lo siguiente en tu sistema:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **PHP** (>= 8.2): Descarga desde [php.net](https://www.php.net/downloads.php).
+- **Composer**: Gestor de dependencias de PHP. Descarga desde [getcomposer.org](https://getcomposer.org/).
+- **Node.js y npm**: Para compilar assets frontend (si aplica). Descarga desde [nodejs.org](https://nodejs.org/).
+- **MySQL**: O una base de datos compatible (como PostgreSQL). Descarga desde [mysql.com](https://dev.mysql.com/downloads/) o usa XAMPP.
+- **Git**: Para clonar el repositorio. Descarga desde [git-scm.com](https://git-scm.com/).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Instalación
 
-## Learning Laravel
+Sigue estos pasos para descargar, instalar y ejecutar el proyecto localmente:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1. **Clonar el repositorio**:
+   - Abre una terminal (PowerShell, CMD, Git Bash en Windows, o la terminal en Linux/Mac).
+   - Clona el repositorio desde GitHub:
+     ```bash
+     git clone https://github.com/laticsproy/mercodisem.git
+     cd mercodisem
+     ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+2. **Instalar dependencias de PHP**:
+   - Ejecuta el siguiente comando para instalar las dependencias definidas en `composer.json`:
+     ```bash
+     composer install
+     ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+3. **Instalar dependencias de frontend** (si aplica):
+   - Si el proyecto utiliza Vite para compilar assets frontend (CSS/JavaScript), instala las dependencias de Node.js:
+     ```bash
+     npm install
+     npm run build
+     ```
+   - Nota: Si el proyecto no usa assets frontend, puedes omitir este paso.
 
-## Laravel Sponsors
+4. **Configurar el archivo de entorno**:
+   - Copia el archivo `.env.example` para crear un archivo `.env`:
+     ```bash
+     copy .env.example .env  # Windows
+     cp .env.example .env    # Linux/Mac
+     ```
+   - Abre el archivo `.env` en un editor de texto (como VS Code) y configura la conexión a la base de datos:
+     ```env
+     DB_CONNECTION=mysql
+     DB_HOST=127.0.0.1
+     DB_PORT=3306
+     DB_DATABASE=minuta_electronica
+     DB_USERNAME=tu_usuario
+     DB_PASSWORD=tu_contraseña
+     ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+5. **Generar la clave de la aplicación**:
+   - Ejecuta el siguiente comando para generar una clave única para la aplicación:
+     ```bash
+     php artisan key:generate
+     ```
 
-### Premium Partners
+6. **Crear la base de datos**:
+   - Crea una base de datos en MySQL con el nombre especificado en `DB_DATABASE` (por ejemplo, `minuta_electronica`). Usa una herramienta como phpMyAdmin o la terminal de MySQL:
+     ```sql
+     CREATE DATABASE minuta_electronica;
+     ```
+   - Asegúrate de que el usuario y la contraseña en `.env` tengan permisos para esta base de datos.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+7. **Ejecutar las migraciones**:
+   - Aplica las migraciones para crear las tablas en la base de datos:
+     ```bash
+     php artisan migrate
+     ```
+   - Si el proyecto incluye datos iniciales (seeders), ejecuta:
+     ```bash
+     php artisan db:seed
+     ```
 
-## Contributing
+8. **Iniciar el servidor de desarrollo**:
+   - Inicia el servidor integrado de Laravel:
+     ```bash
+     php artisan serve
+     ```
+   - Abre un navegador y accede a `http://localhost:8000` para ver la aplicación.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Estructura del proyecto
 
-## Code of Conduct
+Para explorar el código, revisa las siguientes ubicaciones:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **Migraciones**: Archivos que definen la estructura de la base de datos, ubicados en `database/migrations/`.
+- **Modelos**: Clases Eloquent que representan las tablas de la base de datos, ubicadas en `app/Models/`.
+- **Controladores**: Lógica de negocio implementada en los controladores, ubicada en `app/Http/Controllers/`.
+- **Requests**: Clases de validación de formularios, como `StoreReunion` y `StoreAsistente`, ubicadas en `app/Http/Requests/`.
+- **Rutas**: Definición de rutas en `routes/web.php` para rutas web y, opcionalmente, en `routes/api.php` para rutas API.
+- **Vistas**: Archivos Blade para la interfaz de usuario, ubicados en `resources/views/`.
 
-## Security Vulnerabilities
+## Contribuciones
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Si deseas contribuir al proyecto:
 
-## License
+1. Haz un fork del repositorio.
+2. Crea una rama para tus cambios:
+   ```bash
+   git checkout -b nueva-funcionalidad
+   ```
+3. Commitea tus cambios:
+   ```bash
+   git commit -m "Descripción de los cambios"
+   ```
+4. Sube tu rama:
+   ```bash
+   git push origin nueva-funcionalidad
+   ```
+5. Crea un Pull Request en GitHub.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Licencia
+
+[Agrega la licencia de tu proyecto, por ejemplo, MIT License, si aplica.]
